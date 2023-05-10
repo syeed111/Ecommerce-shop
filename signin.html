@@ -35,13 +35,15 @@
 			<h1>Login with GitHub</h1>
 			<p class="text-center"><a href="#" id="login" >Login</a></p>
 			<p id="output"></p>
-			<button id="btn">Continue</button>
-			<a href="authentication.html">Authenticate</a>
+			<button id="btn" href="online-shop.html">Continue</button>
+
+			
 			<script>
-				document.getElementById('btn').disabled=false;
+				document.getElementById('btn').disabled=true;
 				const anchorTag = document.getElementById('login')
 				const outputText = document.getElementById('output')
-		
+		     
+
 				anchorTag.addEventListener('click', (e) => {
 					e.preventDefault()
 		
@@ -49,18 +51,18 @@
 		
 					authenticator.authenticate({provider:"github", scope: "user"}, (err, data) => {
 						err ? outputText.innerText = "Error Authenticating with GitHub: " + err : 
-						outputText.innerText = "Authenticated with GitHub. Access Token: " + data.token
+						document.getElementById('btn').disabled=false;
 					})
 				})
 			</script>
-			
+			 <a href="online-shop.html">Home</a>
 		</div>
 	</div>
 
 	<div class="container">
 		
 		<div class="home">
-     <a href="online-shop.html">Home</a>
+    
 		</div>
 	</div>
 
