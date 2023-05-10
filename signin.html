@@ -35,14 +35,18 @@
 			<h1>Login with GitHub</h1>
 			<p class="text-center"><a href="#" id="login" >Login</a></p>
 			<p id="output"></p>
-			<button id="btn" href="online-shop.html">Continue</button>
+			 <button id="btn" onclick="changePage()">Continue</button>
 
 			
 			<script>
 				document.getElementById('btn').disabled=true;
 				const anchorTag = document.getElementById('login')
 				const outputText = document.getElementById('output')
-		     
+		                 
+				function changePage()
+				{
+					window.location.href = "online-shop.html";
+				}
 
 				anchorTag.addEventListener('click', (e) => {
 					e.preventDefault()
@@ -59,12 +63,7 @@
 		</div>
 	</div>
 
-	<div class="container">
-		
-		<div class="home">
-    
-		</div>
-	</div>
+	
 
 
 </body>
