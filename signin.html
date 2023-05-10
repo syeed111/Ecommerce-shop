@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In/Sign Up Page</title>
+  <link rel="stylesheet" href="index.js">
+  <script src="https://unpkg.com/netlify-auth-providers"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		.container {
+			margin: 50px auto;
+			width: 400px;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 24px;
+			margin-bottom: 20px;
+			color:rgb(9, 234, 159);
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		
+			<h1>Login with GitHub</h1>
+			<p class="text-center"><a href="#" id="login" >Login</a></p>
+			<p id="output"></p>
+			<button id="btn">Continue</button>
+			<a href="authentication.html">Authenticate</a>
+			<script>
+				document.getElementById('btn').disabled=false;
+				const anchorTag = document.getElementById('login')
+				const outputText = document.getElementById('output')
+		
+				anchorTag.addEventListener('click', (e) => {
+					e.preventDefault()
+		
+					const authenticator = new netlify.default ({})
+		
+					authenticator.authenticate({provider:"github", scope: "user"}, (err, data) => {
+						err ? outputText.innerText = "Error Authenticating with GitHub: " + err : 
+						outputText.innerText = "Authenticated with GitHub. Access Token: " + data.token
+					})
+				})
+			</script>
+			
+		</div>
+	</div>
+
+	<div class="container">
+		
+		<div class="home">
+     <a href="online-shop.html">Home</a>
+		</div>
+	</div>
+
+
+</body>
+</html>
